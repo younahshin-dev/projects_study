@@ -1,0 +1,7 @@
+:root {
+    --pane-padding: 5px 42px;
+}
+
+* {
+    padding : var(--pane-padding);
+}

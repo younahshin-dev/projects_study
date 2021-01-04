@@ -1,0 +1,7 @@
+:root {
+    padding-size: 20px 0px;
+}
+
+* {
+    padding : padding-size;
+}
