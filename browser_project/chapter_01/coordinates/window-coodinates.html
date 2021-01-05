@@ -4,30 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            width:100%;
+            height:100%;
+        }
 
+        div {
+            width:50px;
+            height:50px;
+            background-color:bisque;
+            margin:10px 0px;
+        }
+
+        .special {
+            background-color:rebeccapurple;
+        }
+    </style>
 </head>
-<body style="width:100%;height:100%;">
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:rebeccapurple;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
-    <div style="width:50px;height:50px;background-color:bisque;margin:10px 0px;"></div>
+<body style="">
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div class="special"></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
 </body>
 <script>
     let selectedItem = document.querySelectorAll('div');
@@ -35,7 +51,7 @@
     selectedItem.forEach(item => {
         item.addEventListener('click', (event) => {
             console.log(item.getBoundingClientRect());
-            console.log(`client : ${event.clientX}, ${event.clientX}`);
+            console.log(`client : ${event.clientX}, ${event.clientY}`);
             console.log(`page : ${event.pageX}, ${event.pageY}`);
         })
     })
