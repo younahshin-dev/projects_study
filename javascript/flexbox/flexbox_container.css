@@ -1,0 +1,65 @@
+.container {
+  background: beige;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  /* flex-flow: column nowrap; */
+
+  /* justify-content 중심축에서 아이템을 배치 */
+  /* justify-content: space-around;  아이템 주변에 공간테두리를 두름*/
+  /* justify-content: space-evenly;  아이템사이에 같은 사이즈의 공간*/
+  justify-content: space-between;
+
+  /* justify-content 반대축에서 아이템을 배치 */
+  align-items: baseline;
+
+  align-content: space-between;
+}
+
+.item {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+}
+
+.item1 {
+  background-color: #ef9a9a;
+}
+
+.item2 {
+  background-color: #f48fb1;
+}
+
+.item3 {
+  background-color: #ce93d8;
+}
+
+.item4 {
+  background-color: #b39ddb;
+}
+
+.item5 {
+  background-color: #90caf9;
+}
+
+.item6 {
+  background-color: #a5d6a7;
+}
+
+.item7 {
+  background-color: #e6ee9c;
+}
+
+.item8 {
+  background-color: #fff59d;
+}
+
+.item9 {
+  background-color: #ffca28;
+}
+
+.item10 {
+  background-color: #ff8a65;
+}
