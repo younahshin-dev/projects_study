@@ -99,16 +99,20 @@
     const btnScrollIntoSpecial = document.querySelector('.btnScrollIntoSpecial');
 
     btnScrollBy.addEventListener('click', event => {
-        scroll(event.pageX, event.pageY+100);
+        //scroll(event.pageX, event.pageY+100); 
+        window.scrollBy({top :100, left:0, behavior:"smooth"});
     });
 
     btnScrollTo.addEventListener('click', event => {
-        scroll(event.pageX, 100);
+        //scroll(event.pageX, 100);
+        window.scrollTo({behavior:"smooth",top: 100, left:0});
     });
 
     btnScrollIntoSpecial.addEventListener('click', event => {
-        const specialElementRect = document.querySelector('.special').getBoundingClientRect();
-        scroll(event.pageX, specialElementRect.top);
+        //const specialElementRect = document.querySelector('.special').getBoundingClientRect();
+        //scroll(event.pageX, specialElementRect.top);
+         //btnScrollIntoSpecial.scrollIntoView();
+         document.querySelector(".special").scrollIntoView({behavior: "smooth", block: "start"});
     });
 
 
