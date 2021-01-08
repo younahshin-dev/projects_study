@@ -36,16 +36,18 @@ html {
 
 .coordinateValue span {
   color: var(--font-color);
-  position: fixed;
+  position: absolute;
   top: 0px;
   left: 0px;
+  transform: translate(20px, 20px);
 }
 
 .coordinateValue img {
   z-index: 0;
-  position: fixed;
+  position: absolute;
   width: var(--target-width);
   height: var(--target-height);
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
+  transform: translate(-50%, -50%);
 }
