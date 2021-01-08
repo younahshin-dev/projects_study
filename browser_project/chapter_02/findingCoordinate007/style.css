@@ -1,6 +1,8 @@
 :root {
   --background-color: black;
   --font-color: white;
+  --target-height: 50px;
+  --target-width: 50px;
 }
 
 * {
@@ -15,6 +17,7 @@ html {
 }
 
 .verticalLine {
+  z-index: 1;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -23,6 +26,7 @@ html {
 }
 
 .horizenLine {
+  z-index: 1;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -30,9 +34,18 @@ html {
   width: 100%;
 }
 
-span {
+.coordinateValue span {
   color: var(--font-color);
   position: fixed;
   top: 0px;
   left: 0px;
+}
+
+.coordinateValue img {
+  z-index: 0;
+  position: fixed;
+  width: var(--target-width);
+  height: var(--target-height);
+  top: 0;
+  left: 0;
 }
