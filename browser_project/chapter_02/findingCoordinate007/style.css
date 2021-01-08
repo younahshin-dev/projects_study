@@ -1,0 +1,38 @@
+:root {
+  --background-color: black;
+  --font-color: white;
+}
+
+* {
+  background-color: var(--background-color);
+  cursor: crosshair;
+}
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+
+.verticalLine {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  border-left: 2px solid var(--font-color);
+  height: 100%;
+}
+
+.horizenLine {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  border-top: 2px solid var(--font-color);
+  width: 100%;
+}
+
+span {
+  color: var(--font-color);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
