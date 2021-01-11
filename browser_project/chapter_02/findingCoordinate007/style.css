@@ -19,8 +19,6 @@ html {
 .verticalLine {
   z-index: 1;
   position: fixed;
-  top: 0px;
-  left: 0px;
   border-left: 2px solid var(--font-color);
   height: 100%;
 }
@@ -28,8 +26,6 @@ html {
 .horizenLine {
   z-index: 1;
   position: fixed;
-  top: 0px;
-  left: 0px;
   border-top: 2px solid var(--font-color);
   width: 100%;
 }
@@ -37,9 +33,7 @@ html {
 .coordinateValue span {
   color: var(--font-color);
   position: absolute;
-  top: 0px;
-  left: 0px;
-  transform: translate(20px, 20px);
+  margin:20px;
 }
 
 .coordinateValue img {
@@ -47,7 +41,4 @@ html {
   position: absolute;
   width: var(--target-width);
   height: var(--target-height);
-  top: 0px;
-  left: 0px;
-  transform: translate(-50%, -50%);
 }
