@@ -11,7 +11,6 @@ function checkValidation() {
 
 function addItem() {
   if (!checkValidation()) {
-    alert("Please enter your Shopping Item");
     const textInput = document.querySelector(".inputItem");
     textInput.focus();
     return;
@@ -26,20 +25,23 @@ function addItem() {
   itemElement.innerHTML = `<span>${itemValue}</span><button class="btnTrash"><i class="fas fa-trash-alt"></i></button>`;
   itemList.appendChild(itemElement);
 
+  itemElement.scrollIntoView();
   bindTrashEvent();
 
   textInput.value = "";
+  textInput.focus();
 }
 
 function bindTrashEvent() {
-  const trashIcons = document.querySelectorAll(".btnTrash");
-  for (trashIcon of trashIcons) {
-    trashIcon.addEventListener("click", (event) => {
-      const currentTarget = event.currentTarget;
-      const removeItem = currentTarget.closest("li");
+  const listItems = document.querySelector(".shoppingItems");
+  
+  listItems.addEventListener("click", (event) => {
+    if ( event.target.tagName === "BUTTON" || event.target.tagName === "I"){
+      const removeItem = event.target.closest("li");
       removeItem.remove();
-    });
-  }
+    }
+  });
+  
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -56,5 +58,5 @@ window.addEventListener("DOMContentLoaded", () => {
     addItem();
   });
 
-  bindTrashEvent();
+
 });
