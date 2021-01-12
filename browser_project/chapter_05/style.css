@@ -3,13 +3,14 @@
   --header-color: #25c6d8;
   --background-color: #eceff1;
   --bottom-color: #e0e0e0;
-  --button-color: #1ecee6;
-  --list-color: #ffffff;
+  --trashbtn-color: #25c6d8;
+  --addbtn-color: hsl(187, 100%, 93%);
+  --list-color: #e5e1e6;
 
   /* size */
   --font-size: 1.5rem;
   --font-medium-size: 1rem;
-  --button-size: 3.5rem;
+  --button-size: 4.2rem;
   --header-height: 10%;
   --input-height: 5%;
   --list-height: 68%;
@@ -80,7 +81,10 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0 10px;
+  margin: 10px 10px;
+  padding: 0 10px;
+  background-color:var(--list-color);
+  border-radius: 8px;
 }
 
 button {
@@ -93,13 +97,14 @@ button {
 .btnTrash {
   font-size: var(--font-medium-size);
   border-style: none;
-  color: var(--button-color);
-  transition: ease-in 300ms;
+  color: var(--trashbtn-color);
+  transition: ease-in 200ms;
 }
 
 .btnTrash:hover {
   transform: scale(1.2);
-  color: red;
+  color: rgb(224, 77, 175);
+  cursor: pointer;
 }
 
 .bottom {
@@ -130,4 +135,15 @@ button {
 .addBtn {
   margin-top: 4px;
   font-size:1.4em;
+  outline-style: none;
+  color: var(--addbtn-color);
+}
+
+button:hover {
+  cursur:pointer;
+}
+
+button:active {
+  outline: none;
+  border: none;
 }

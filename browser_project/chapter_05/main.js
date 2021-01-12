@@ -12,6 +12,8 @@ function checkValidation() {
 function addItem() {
   if (!checkValidation()) {
     alert("Please enter your Shopping Item");
+    const textInput = document.querySelector(".inputItem");
+    textInput.focus();
     return;
   }
 
@@ -30,7 +32,7 @@ function addItem() {
 }
 
 function bindTrashEvent() {
-  const trashIcons = document.querySelectorAll(".fa-trash-alt");
+  const trashIcons = document.querySelectorAll(".btnTrash");
   for (trashIcon of trashIcons) {
     trashIcon.addEventListener("click", (event) => {
       const currentTarget = event.currentTarget;
