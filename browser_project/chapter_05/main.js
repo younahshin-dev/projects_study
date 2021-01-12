@@ -21,7 +21,7 @@ function addItem() {
   const itemElement = document.createElement("li");
 
   itemElement.className = "item";
-  itemElement.innerHTML = `<span>${itemValue}</span><i class="fas fa-trash-alt"></i>`;
+  itemElement.innerHTML = `<span>${itemValue}</span><button class="btnTrash"><i class="fas fa-trash-alt"></i></button>`;
   itemList.appendChild(itemElement);
 
   bindTrashEvent();

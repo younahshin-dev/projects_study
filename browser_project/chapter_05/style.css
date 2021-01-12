@@ -40,7 +40,7 @@ ul {
 }
 
 .frame {
-  min-width: 168px;
+  min-width: 186px;
   min-height: 450px;
   width: 30%;
   height: 40%;
@@ -49,6 +49,10 @@ ul {
   background-color: var(--background-color);
   margin: 100px auto;
   border-radius: 20px;
+
+  -webkit-box-shadow: 10px 15px 18px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 15px 18px -5px rgba(0,0,0,0.75);
+  box-shadow: 10px 15px 18px -5px rgba(0,0,0,0.75);
 }
 
 .header {
@@ -83,6 +87,7 @@ button {
   font-size: var(--font-size);
   border-style: none;
   background-color: transparent;
+  
 }
 
 .btnTrash {
@@ -98,10 +103,11 @@ button {
 }
 
 .bottom {
-  height: 10%;
-  padding: 0;
+  height: 18%;
+  padding: 0px;
   display: flex;
   flex-direction: column;
+  
   background: linear-gradient(
     90deg,
     rgba(2, 0, 36, 1) 0%,
@@ -110,5 +116,18 @@ button {
   );
   font-size: var(--font-size);
   border-radius: 0 0 20px 20px;
-  padding: 8px 0;
+  
+}
+
+.inputItem {
+  padding:0;
+  border-style: none;
+  height: 1.5em;
+  outline: 0;
+  font-size: 1em;
+}
+
+.addBtn {
+  margin-top: 4px;
+  font-size:1.4em;
 }
