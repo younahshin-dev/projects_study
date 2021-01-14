@@ -5,12 +5,13 @@ const field = document.querySelector(".gameField");
 
 const bgm = new Audio("./sound/bg.mp3");
 const deadSound = new Audio("./sound/alert.wav");
-
-const carrotObj = new Image(30, 50);
-carrotObj.src = "./img/carrot.png";
+const bugPullSound = new Audio("./sound/bug_pull.mp3");
+const carrotPullSound = new Audio("./sound/carrot_pull.mp3");
+const winSound = new Audio("./sound/game_win.mp3");
+let playing = false;
 
 function onClickBtn(btnElement) {
-  toggleBtn(btnElement);
+  toggleBtn();
 
   if (btnElement.id === "startBtn") {
     clearfield();
@@ -27,7 +28,8 @@ function clearfield() {
 }
 
 function startGame() {
-  countDown(1);
+  playing = true;
+  //countDown(1);
   let x = 0;
   let y = 0;
 
@@ -37,6 +39,7 @@ function startGame() {
     y = getRandomInt(field.clientHeight - 50);
 
     bug.setAttribute("src", "./img/bug.png");
+    bug.setAttribute("name", "bug");
     bug.style.transform = `translate(${x}px, ${y}px)`;
     bug.style.position = "absolute";
 
@@ -48,6 +51,7 @@ function startGame() {
     x = getRandomInt(field.clientWidth - 80);
     y = getRandomInt(field.clientHeight - 80);
     carrot.setAttribute("src", "./img/carrot.png");
+    carrot.setAttribute("name", "carrot");
     carrot.style.transform = `translate(${x}px, ${y}px)`;
     carrot.style.position = "absolute";
     carrot.setAttribute("data-id", i);
@@ -55,6 +59,45 @@ function startGame() {
   }
 
   bgm.play();
+}
+
+field.addEventListener("click", (event) => {
+  if (playing === false) {
+    return;
+  }
+  onPullTarget(event.target);
+});
+
+function onPullTarget(clickTarget) {
+  if (playing === false) {
+    return;
+  }
+  if (clickTarget.name === "bug") {
+    bugPullSound.play();
+    endGame();
+    toggleBtn();
+  }
+
+  if (clickTarget.name === "carrot") {
+    clickTarget.remove();
+    carrotPullSound.play();
+    checkAllCarrotPulled();
+  }
+}
+
+function checkAllCarrotPulled() {
+  const carrotList = document.querySelectorAll("img[name='carrot']");
+  if (carrotList.length > 0) {
+    return;
+  }
+  winThisGame();
+}
+
+function winThisGame() {
+  bgm.pause();
+  winSound.play();
+  playing = false;
+  alert("win");
 }
 
 let myVar;
@@ -75,7 +118,7 @@ function countDown(timeoutMinute) {
     } else {
       endGame();
       timeout = timeoutMinute;
-      myVar.clearTimeout();
+      //myVar.clearTimeout();
       return;
     }
     if (seconds === 0) {
@@ -86,23 +129,21 @@ function countDown(timeoutMinute) {
 }
 
 function endGame() {
+  playing = false;
   bgm.pause();
   deadSound.play();
-  myVar.clearTimeout();
+  // myVar.clearTimeout();
 }
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-function toggleBtn(btnElement) {
+function toggleBtn() {
   const buttons = document.querySelectorAll(".btns .button");
   buttons.forEach((button) => {
-    if (button.id === btnElement.id) {
-      button.setAttribute("style", "display:none;");
-    } else {
-      button.setAttribute("style", "display:block;");
-    }
+    const buttonClassList = button.classList;
+    buttonClassList.toggle("active");
   });
 }
 
