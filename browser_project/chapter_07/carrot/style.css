@@ -57,6 +57,18 @@ body {
   height: 45%;
 }
 
-.button.active {
+.button.active,
+.popup.active {
   display: block;
+}
+
+.popup {
+  /* display: none; */
+  background-color: white;
+  position: absolute;
+  border-radius: 20px;
+  width: 60%;
+  height: 30%;
+  top: 8%;
+  left: 20%;
 }
