@@ -59,7 +59,7 @@ body {
 
 .button.active,
 .popup.active {
-  display: block;
+  display: inline-block;
 }
 
 .popup {
@@ -71,4 +71,10 @@ body {
   height: 30%;
   top: 8%;
   left: 20%;
+  font-size: 1em;
+  text-align: center;
+}
+
+.winPopup.button {
+  display: inline-block;
 }
