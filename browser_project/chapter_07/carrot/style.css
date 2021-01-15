@@ -57,13 +57,8 @@ body {
   height: 45%;
 }
 
-.button.active,
-.popup.active {
-  display: inline-block;
-}
-
 .popup {
-  /* display: none; */
+  display: none;
   background-color: white;
   position: absolute;
   border-radius: 20px;
@@ -75,6 +70,14 @@ body {
   text-align: center;
 }
 
+.popup > section {
+  display: none;
+}
+
 .winPopup.button {
+  display: inline-block;
+}
+.active,
+.popup > section.active {
   display: inline-block;
 }
