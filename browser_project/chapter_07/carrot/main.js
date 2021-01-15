@@ -1,6 +1,5 @@
 const btnContainer = document.querySelector(".btns");
-const startbutton = document.querySelector("#startBtn");
-
+const popupContainer = document.querySelector(".popup");
 const field = document.querySelector(".gameField");
 
 const bgm = new Audio("./sound/bg.mp3");
@@ -19,7 +18,7 @@ function onClickBtn(btnElement) {
   }
 
   if (btnElement.id === "stopBtn") {
-    endGame();
+    stopGame();
   }
 }
 
@@ -29,7 +28,7 @@ function clearfield() {
 
 function startGame() {
   playing = true;
-  //countDown(1);
+  countDown(1);
   let x = 0;
   let y = 0;
 
@@ -80,8 +79,9 @@ function onPullTarget(clickTarget) {
 
   if (clickTarget.name === "carrot") {
     clickTarget.remove();
-    carrotPullSound.play();
-    checkAllCarrotPulled();
+    carrotPullSound.play().then(() => {
+      checkAllCarrotPulled();
+    });
   }
 }
 
@@ -90,6 +90,7 @@ function checkAllCarrotPulled() {
   if (carrotList.length > 0) {
     return;
   }
+  toggleBtn();
   winThisGame();
 }
 
@@ -97,7 +98,9 @@ function winThisGame() {
   bgm.pause();
   winSound.play();
   playing = false;
-  alert("win");
+  const winPopup = popupContainer.querySelector(".winPopup");
+  popupContainer.classList.add("active");
+  winPopup.classList.add("active");
 }
 
 let myVar;
@@ -105,20 +108,24 @@ function countDown(timeoutMinute) {
   let timeout = timeoutMinute * 60;
   let seconds = timeoutMinute % 60;
   function tick() {
+    if (playing === false) {
+      return;
+    }
+
     const counter = document.querySelector(".timer");
     seconds--;
-    timeout--;
-
     minute = Math.trunc(timeout / 60);
+
     counter.innerHTML =
       minute + ":" + (seconds < 10 ? "0" : "") + String(seconds);
     console.log(timeout);
+    timeout--;
     if (timeout >= 0) {
       myVar = setTimeout(tick, 1000);
     } else {
       endGame();
       timeout = timeoutMinute;
-      //myVar.clearTimeout();
+      myVar.clearTimeout();
       return;
     }
     if (seconds === 0) {
@@ -128,10 +135,19 @@ function countDown(timeoutMinute) {
   tick();
 }
 
+function stopGame() {
+  playing = false;
+  bgm.pause();
+  deadSound.play();
+}
+
 function endGame() {
   playing = false;
   bgm.pause();
   deadSound.play();
+  const loosePopup = popupContainer.querySelector(".loosePopup");
+  popupContainer.classList.add("active");
+  loosePopup.classList.add("active");
   // myVar.clearTimeout();
 }
 
@@ -153,4 +169,18 @@ btnContainer.addEventListener("click", (event) => {
   }
 
   return;
+});
+
+popupContainer.addEventListener("click", (event) => {
+  if (event.target.name === "reStartBtn") {
+    popupContainer.classList.remove("active");
+    const winPopup = popupContainer.querySelector(".winPopup");
+    const loosePopup = popupContainer.querySelector(".loosePopup");
+
+    winPopup.classList.remove("active");
+    loosePopup.classList.remove("active");
+    clearfield();
+    toggleBtn();
+    startGame();
+  }
 });
